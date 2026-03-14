@@ -1,0 +1,1 @@
+# digitalomanai-privacy-app
