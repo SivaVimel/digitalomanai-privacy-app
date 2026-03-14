@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — DigitalOman.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0c;
+    --bg-secondary: #111115;
+    --bg-card: #16161b;
+    --bg-card-hover: #1c1c22;
+    --border: #2a2a32;
+    --border-accent: #00bcd4;
+    --text-primary: #f0f0f5;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6a6a7a;
+    --accent-cyan: #00e5ff;
+    --accent-cyan-dim: #00bcd4;
+    --accent-cyan-glow: rgba(0, 229, 255, 0.08);
+    --accent-silver: #c0c0d0;
+    --gradient-cyan: linear-gradient(135deg, #00e5ff 0%, #00bcd4 100%);
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a32 transparent;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.75;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(0, 229, 255, 0.2);
+    color: var(--text-primary);
+  }
+
+  .ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .ambient::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float1 20s ease-in-out infinite;
+  }
+  .ambient::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 188, 212, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float2 25s ease-in-out infinite;
+  }
+  @keyframes float1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(80px, 60px); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-60px, -80px); }
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 12, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--gradient-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--bg-primary);
+    letter-spacing: -0.5px;
+  }
+  .logo-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+  }
+  .logo-text span {
+    color: var(--accent-cyan);
+  }
+  .header-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    letter-spacing: 0.5px;
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .hero {
+    padding: 80px 0 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-cyan);
+    background: var(--accent-cyan-glow);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero-label::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .hero-meta {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .hero-meta-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-cyan-dim);
+  }
+
+  .toc {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-title {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 8px;
+  }
+  .toc-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+  .toc-link:hover {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border);
+  }
+  .toc-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-cyan-dim);
+    min-width: 22px;
+  }
+
+  .policy-section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.5s ease both;
+  }
+  .policy-section:last-child {
+    border-bottom: none;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent-cyan);
+    background: var(--accent-cyan-glow);
+    border: 1px solid rgba(0, 229, 255, 0.12);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+  .section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .policy-section p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-size: 15.5px;
+    line-height: 1.8;
+  }
+  .policy-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .policy-section ul {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+  }
+  .policy-section li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .policy-section li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background: var(--accent-cyan-dim);
+    opacity: 0.6;
+  }
+
+  .highlight-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-cyan-dim);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .highlight-box p {
+    margin-bottom: 0;
+    font-size: 14.5px;
+  }
+  .highlight-box p + p {
+    margin-top: 10px;
+  }
+
+  .inline-code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 4px;
+    color: var(--accent-cyan);
+  }
+
+  strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  a.policy-link {
+    color: var(--accent-cyan-dim);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  a.policy-link:hover {
+    color: var(--accent-cyan);
+  }
+
+  .site-footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 48px 24px;
+    text-align: center;
+  }
+  .footer-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .footer-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .footer-logo span {
+    color: var(--accent-cyan);
+  }
+  .footer-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .footer-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--border);
+    margin: 24px auto;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    color: var(--accent-cyan);
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 56px 0 36px; }
+    .hero-meta { gap: 16px; }
+    .policy-section { padding: 36px 0; }
+    .section-header { flex-direction: column; gap: 8px; }
+    .toc-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">D</div>
+      <div class="logo-text">Digital<span>Oman</span>.ai</div>
+    </a>
+    <div class="header-badge">LEGAL</div>
+  </div>
+</header>
+
+<main class="content-wrapper">
+
+  <section class="hero">
+    <div class="hero-label">Privacy Policy</div>
+    <h1>Your Privacy, Our Priority</h1>
+    <p>We built DigitalOman.ai with privacy at its core. This policy explains how we handle — and protect — your data.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+        Effective: March 14, 2026
+      </div>
+      <div class="hero-meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182"/></svg>
+        Last Updated: March 14, 2026
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-title">Contents</div>
+    <div class="toc-grid">
+      <a href="#s1" class="toc-link"><span class="toc-num">01</span>Introduction</a>
+      <a href="#s2" class="toc-link"><span class="toc-num">02</span>Information We Collect</a>
+      <a href="#s3" class="toc-link"><span class="toc-num">03</span>How We Use Information</a>
+      <a href="#s4" class="toc-link"><span class="toc-num">04</span>Data Storage &amp; Security</a>
+      <a href="#s5" class="toc-link"><span class="toc-num">05</span>Third-Party Services</a>
+      <a href="#s6" class="toc-link"><span class="toc-num">06</span>Advertising &amp; Google AdMob</a>
+      <a href="#s7" class="toc-link"><span class="toc-num">07</span>AI Models &amp; Processing</a>
+      <a href="#s8" class="toc-link"><span class="toc-num">08</span>Multimedia &amp; File Handling</a>
+      <a href="#s9" class="toc-link"><span class="toc-num">09</span>CoWork Features</a>
+      <a href="#s10" class="toc-link"><span class="toc-num">10</span>Internet &amp; Web Search</a>
+      <a href="#s11" class="toc-link"><span class="toc-num">11</span>Conversation Data</a>
+      <a href="#s12" class="toc-link"><span class="toc-num">12</span>Children's Privacy</a>
+      <a href="#s13" class="toc-link"><span class="toc-num">13</span>Your Rights &amp; Controls</a>
+      <a href="#s14" class="toc-link"><span class="toc-num">14</span>Changes to This Policy</a>
+      <a href="#s15" class="toc-link"><span class="toc-num">15</span>Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- 01 — Introduction -->
+  <section class="policy-section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Introduction</h2>
+    </div>
+    <p>Welcome to <strong>DigitalOman.ai</strong> ("we," "our," or "the App"). We are committed to protecting your privacy and ensuring a safe, transparent experience. This Privacy Policy describes how we collect, use, store, and safeguard information when you use our application.</p>
+    <p>By installing or using DigitalOman.ai, you agree to the practices described in this policy. If you do not agree, please discontinue use of the App.</p>
+    <div class="highlight-box">
+      <p><strong>Our Core Principle:</strong> DigitalOman.ai is built with a privacy-first architecture. Your conversations, personal data, and credentials are stored locally on your device. We do not collect, transmit, or sell your personal data to any third parties.</p>
+      <p><strong>Advertising Disclosure:</strong> The App uses Google AdMob to display advertisements. AdMob may collect certain device identifiers and non-personal information for ad delivery, fraud prevention, and analytics. No personally identifiable information (PII) is shared with AdMob by us. See Section 06 for full details.</p>
+    </div>
+  </section>
+
+  <!-- 02 — Information We Collect -->
+  <section class="policy-section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Information We Collect</h2>
+    </div>
+    <p><strong>Information stored locally on your device:</strong></p>
+    <ul>
+      <li>Chat conversations and message history</li>
+      <li>Custom AI instructions and preferences you configure</li>
+      <li>API keys and credentials for third-party AI services you choose to connect</li>
+      <li>Gmail login credentials (email and app password) if you use the CoWork Gmail feature</li>
+      <li>Notes, to-do lists, and transcriptions you create within the App</li>
+      <li>Images and files you attach for AI analysis</li>
+      <li>Theme preferences and app settings</li>
+    </ul>
+    <p><strong>Information collected automatically by third-party advertising services:</strong></p>
+    <ul>
+      <li>Google AdMob may collect your device's Advertising ID (a resettable, non-personal identifier assigned by your device's operating system)</li>
+      <li>General device information such as device model, operating system version, and screen size for ad formatting purposes</li>
+      <li>Approximate (coarse) location data derived from IP address for region-appropriate ad delivery</li>
+      <li>Ad interaction data such as impressions, clicks, and engagement metrics</li>
+      <li>Crash and diagnostic data related to ad rendering</li>
+    </ul>
+    <div class="highlight-box">
+      <p><strong>Important:</strong> The Advertising ID is not personally identifiable information. It is a randomized, resettable identifier used solely for advertising purposes. You can reset or disable it through your device's privacy settings at any time.</p>
+    </div>
+    <p><strong>Information we do NOT collect:</strong></p>
+    <ul>
+      <li>We do not collect or store any personal data on our servers</li>
+      <li>We do not track your location, contacts, or browsing activity</li>
+      <li>We do not collect analytics, telemetry, or usage patterns</li>
+      <li>We do not have access to your API keys, credentials, or conversation content</li>
+      <li>We do not share your conversations, files, or personal content with any advertising service</li>
+    </ul>
+  </section>
+
+  <!-- 03 — How We Use Information -->
+  <section class="policy-section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>How We Use Information</h2>
+    </div>
+    <p>All data processing occurs <strong>locally on your device</strong> or through third-party AI services you explicitly choose to connect. We use your locally stored information solely to:</p>
+    <ul>
+      <li>Provide AI-powered responses to your queries using your selected AI model (local or cloud)</li>
+      <li>Process images, files, and documents you attach for analysis</li>
+      <li>Maintain your chat history (limited to the most recent 5 conversations for storage safety)</li>
+      <li>Apply custom instructions you have configured to your AI interactions</li>
+      <li>Enable CoWork productivity features (Gmail, Notes, To-Do, Transcribe)</li>
+      <li>Perform web searches when you activate the Internet feature</li>
+      <li>Display advertisements through Google AdMob to support the App's free availability</li>
+    </ul>
+  </section>
+
+  <!-- 04 — Data Storage & Security -->
+  <section class="policy-section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Data Storage &amp; Security</h2>
+    </div>
+    <p>Your data is stored exclusively on your device's local storage. We implement the following measures to safeguard your data:</p>
+    <ul>
+      <li><strong>On-device storage only:</strong> All conversations, credentials, notes, and settings remain on your device and are never transmitted to our servers.</li>
+      <li><strong>Automatic conversation cleanup:</strong> Only the 5 most recent conversations are retained. Older conversations are automatically deleted to ensure data security and storage efficiency.</li>
+      <li><strong>Manual deletion:</strong> You can delete any specific conversation, note, to-do item, or credential at any time.</li>
+      <li><strong>No cloud backup by us:</strong> We do not back up any of your data. If you uninstall the App, all locally stored data will be permanently removed.</li>
+    </ul>
+    <div class="highlight-box">
+      <p><strong>Important:</strong> API keys and Gmail credentials you enter are stored solely on your device. We never have access to these credentials. You are responsible for managing and safeguarding credentials entered into the App.</p>
+    </div>
+  </section>
+
+  <!-- 05 — Third-Party Services -->
+  <section class="policy-section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Third-Party Services</h2>
+    </div>
+    <p>DigitalOman.ai allows you to optionally connect third-party AI services. When you choose to use a cloud AI provider, your queries are sent directly from your device to that provider's servers. These third-party services include but are not limited to:</p>
+    <ul>
+      <li>Google Gemini</li>
+      <li>OpenAI (ChatGPT)</li>
+      <li>Anthropic (Claude)</li>
+      <li>Groq</li>
+      <li>Mistral</li>
+      <li>DeepSeek</li>
+      <li>Qwen</li>
+      <li>Custom OpenAI-compatible endpoints (e.g., Ollama, LM Studio, OpenRouter)</li>
+    </ul>
+    <p>Each third-party provider has its own privacy policy governing how they handle the data you send. We strongly encourage you to review the privacy policies of any third-party AI service you connect. <strong>DigitalOman.ai does not act as an intermediary</strong> — data flows directly between your device and the provider you select.</p>
+    <p>Additionally, the App integrates <strong>Google AdMob</strong> for advertising, which is governed by its own data handling practices as detailed in the next section.</p>
+  </section>
+
+  <!-- 06 — Advertising & Google AdMob (NEW) -->
+  <section class="policy-section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Advertising &amp; Google AdMob</h2>
+    </div>
+    <p>DigitalOman.ai uses <strong>Google AdMob</strong> to serve advertisements within the App. AdMob is provided by Google LLC and helps us keep the App freely available to users. This section explains what data AdMob collects and how it is used.</p>
+
+    <p><strong>What AdMob collects:</strong></p>
+    <ul>
+      <li><strong>Advertising ID:</strong> A unique, resettable, anonymous identifier assigned by your device's operating system (Google Advertising ID on Android, IDFA on iOS). This is <strong>not</strong> personally identifiable information and can be reset or disabled by you at any time.</li>
+      <li><strong>Device information:</strong> Device model, manufacturer, operating system and version, screen dimensions, and language settings — used to format and deliver ads correctly.</li>
+      <li><strong>IP address:</strong> Used to derive approximate (coarse) geographic location for delivering region-appropriate ads and for fraud prevention. Your precise location is never accessed.</li>
+      <li><strong>Ad interaction data:</strong> Information about ad impressions, clicks, views, and engagement — used for analytics, billing, and fraud detection.</li>
+      <li><strong>App usage signals:</strong> Limited metadata such as app version and SDK version for diagnostic and ad optimization purposes.</li>
+    </ul>
+
+    <p><strong>How AdMob uses this data:</strong></p>
+    <ul>
+      <li>To serve, personalize, and measure the effectiveness of advertisements</li>
+      <li>To prevent ad fraud, spam, and abuse</li>
+      <li>To perform analytics and improve ad services</li>
+      <li>To comply with legal obligations</li>
+    </ul>
+
+    <p><strong>What AdMob does NOT have access to:</strong></p>
+    <ul>
+      <li>Your conversations, messages, or AI queries</li>
+      <li>Your files, images, documents, or camera content</li>
+      <li>Your API keys, Gmail credentials, or any CoWork data</li>
+      <li>Your notes, to-do lists, or transcriptions</li>
+      <li>Any content you create, share, or store within the App</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p><strong>Ad Personalization:</strong> AdMob may serve personalized ads based on your Advertising ID and general device signals. You can opt out of personalized advertising at any time through your device settings (see Section 13: Your Rights &amp; Controls). When personalization is disabled, you will still see ads, but they will not be tailored to your interests.</p>
+    </div>
+
+    <p>For complete information about Google's advertising data practices, please review the <a href="https://policies.google.com/privacy" class="policy-link" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543" class="policy-link" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a>.</p>
+  </section>
+
+  <!-- 07 — AI Models & Processing -->
+  <section class="policy-section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>AI Models &amp; Processing</h2>
+    </div>
+    <p><strong>Local AI Processing:</strong> When using a local LLM (on-device model), all AI processing occurs entirely on your device. No data leaves your device in this mode. This is the most private option available.</p>
+    <p><strong>Cloud AI Processing:</strong> When using a cloud-based AI provider via API, your messages and attached content are sent to the selected provider's servers for processing. The amount of data sent varies:</p>
+    <ul>
+      <li>For local LLMs, only limited extracted text from files is sent for processing.</li>
+      <li>For cloud LLMs, larger portions of extracted content may be sent to enable more comprehensive analysis.</li>
+      <li>If a local or cloud LLM does not support image recognition, the App uses an on-device ML toolkit to extract text from images before passing it to the LLM.</li>
+    </ul>
+  </section>
+
+  <!-- 08 — Multimedia & File Handling -->
+  <section class="policy-section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Multimedia &amp; File Handling</h2>
+    </div>
+    <p>When you attach images, capture photos, or upload files (such as PDFs):</p>
+    <ul>
+      <li>Files are processed locally on your device for text extraction and analysis.</li>
+      <li>If you are using a cloud AI model, extracted content or the file itself may be sent to the cloud provider for analysis, depending on the model's capabilities.</li>
+      <li>Camera and file storage access is requested only when you explicitly initiate the action (e.g., tapping the Camera or Image button).</li>
+      <li>We do not access your camera, gallery, or files in the background or without your interaction.</li>
+      <li>No images, files, or multimedia content is ever shared with advertising services.</li>
+    </ul>
+  </section>
+
+  <!-- 09 — CoWork Features -->
+  <section class="policy-section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>CoWork Features</h2>
+    </div>
+    <p>The CoWork suite includes Gmail integration, To-Do lists, Notes, and Transcription. Here is how each feature handles your data:</p>
+
+    <p><strong>Gmail Integration:</strong></p>
+    <ul>
+      <li>Your Gmail address and app password are stored exclusively on your device.</li>
+      <li>Emails are fetched directly from Gmail servers to your device. We do not intercept, store, or have access to your email content.</li>
+      <li>AI-powered features (overview, summarization, AI reply) process email content through your selected AI model — locally or via your chosen cloud provider.</li>
+      <li>You can disconnect your Gmail account at any time, which removes stored credentials from your device.</li>
+    </ul>
+
+    <p><strong>To-Do Lists:</strong></p>
+    <ul>
+      <li>All tasks, dates, and times are stored locally on your device.</li>
+      <li>Tasks due today or tomorrow are shared with the AI as silent context to enhance relevance, using your selected AI model only.</li>
+    </ul>
+
+    <p><strong>Notes:</strong></p>
+    <ul>
+      <li>All notes are stored locally on your device.</li>
+      <li>The AI Enhance feature processes your note content through your selected AI model and creates a separate enhanced copy alongside your original.</li>
+      <li>Notes can be exported as TXT, PDF, or DOCX files — all processing occurs on your device.</li>
+    </ul>
+
+    <p><strong>Transcription:</strong></p>
+    <ul>
+      <li>Speech-to-text transcription is performed on your device.</li>
+      <li>Transcripts and AI summaries are stored locally and can be optionally added to Notes.</li>
+      <li>Microphone access is requested only when you actively start a recording session.</li>
+    </ul>
+  </section>
+
+  <!-- 10 — Internet & Web Search -->
+  <section class="policy-section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Internet &amp; Web Search</h2>
+    </div>
+    <p>When you activate the Internet feature, the App performs web searches based on your query and the selected category (general search, news, location, images, or video):</p>
+    <ul>
+      <li>Search queries are sent to external web search services to fetch results.</li>
+      <li>Retrieved web content (titles, descriptions, and context) is displayed within the App and may be passed to your selected AI model for contextual responses.</li>
+      <li>When you visit a web page through search results and use the "Open Assistant" feature, the page content is fetched and processed through your AI model.</li>
+      <li>We do not log, store, or track your search queries or browsing history on any external server.</li>
+    </ul>
+  </section>
+
+  <!-- 11 — Conversation Data -->
+  <section class="policy-section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Conversation Data</h2>
+    </div>
+    <p>Your conversation data is handled with the following safeguards:</p>
+    <ul>
+      <li>Conversations are stored locally on your device only.</li>
+      <li>A maximum of 5 recent conversations are retained at any time. Older conversations are automatically deleted.</li>
+      <li>You may manually delete any conversation at any time.</li>
+      <li>You may create new conversations or clear your chat history as needed.</li>
+      <li>We have no access to your conversation content, and no conversation data is transmitted to our servers or shared with any advertising service.</li>
+    </ul>
+  </section>
+
+  <!-- 12 — Children's Privacy -->
+  <section class="policy-section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>Children's Privacy</h2>
+    </div>
+    <p>DigitalOman.ai is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. Since all data is stored locally on the user's device and we do not collect any personal information, no children's data is transmitted to or stored on our servers.</p>
+
+    <p><strong>Advertising and Children:</strong></p>
+    <ul>
+      <li>We have configured Google AdMob to comply with the Children's Online Privacy Protection Act (COPPA) and applicable regulations.</li>
+      <li>For users identified as children or when the App is used by a child, AdMob serves only limited, non-personalized advertisements.</li>
+      <li>No behavioral advertising or interest-based ad targeting is applied to children's usage.</li>
+      <li>AdMob does not collect or use the Advertising ID for personalization purposes for child-directed content.</li>
+    </ul>
+
+    <p>If you are a parent or guardian and believe your child has used the App, please be assured that all data remains on the device and can be removed by deleting conversations or uninstalling the App. If you have any concerns, please contact us using the information provided below.</p>
+    <p>We recommend that parents and guardians monitor their children's use of the App, particularly when connecting third-party cloud AI services, as those services are governed by their own privacy policies.</p>
+  </section>
+
+  <!-- 13 — Your Rights & Controls -->
+  <section class="policy-section" id="s13">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2>Your Rights &amp; Controls</h2>
+    </div>
+    <p>You have full control over your data within DigitalOman.ai:</p>
+    <ul>
+      <li><strong>Delete conversations:</strong> Remove any specific conversation or allow automatic cleanup of older ones.</li>
+      <li><strong>Delete notes and tasks:</strong> Remove any notes, to-do items, or transcriptions at any time.</li>
+      <li><strong>Disconnect services:</strong> Remove connected Gmail accounts or API keys from the App.</li>
+      <li><strong>Uninstall:</strong> Uninstalling the App permanently removes all locally stored data, including conversations, credentials, notes, and settings.</li>
+      <li><strong>Choose your AI:</strong> Switch between local (fully offline) and cloud AI models at any time to control where your data is processed.</li>
+    </ul>
+
+    <p><strong>Advertising controls:</strong></p>
+    <ul>
+      <li><strong>Opt out of personalized ads:</strong> On Android, go to <strong>Settings → Privacy → Ads</strong> and enable "Opt out of Ads Personalization" (or "Delete advertising ID" on Android 12+). On iOS, go to <strong>Settings → Privacy &amp; Security → Tracking</strong> and disable "Allow Apps to Request to Track."</li>
+      <li><strong>Reset your Advertising ID:</strong> You can reset your Advertising ID at any time through your device settings to disassociate your future ad activity from previous data.</li>
+      <li><strong>Google Ad Settings:</strong> Visit <a href="https://adssettings.google.com" class="policy-link" target="_blank" rel="noopener">Google Ad Settings</a> to manage your ad preferences and personalization options directly with Google.</li>
+    </ul>
+  </section>
+
+  <!-- 14 — Changes to This Policy -->
+  <section class="policy-section" id="s14">
+    <div class="section-header">
+      <span class="section-num">14</span>
+      <h2>Changes to This Policy</h2>
+    </div>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, regulatory, or operational reasons. When we make material changes, we will update the "Last Updated" date at the top of this page and, where possible, notify users through the App.</p>
+    <p>We encourage you to review this Privacy Policy periodically to stay informed about how we protect your data.</p>
+  </section>
+
+  <!-- 15 — Contact Us -->
+  <section class="policy-section" id="s15">
+    <div class="section-header">
+      <span class="section-num">15</span>
+      <h2>Contact Us</h2>
+    </div>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+    <div class="highlight-box">
+      <p><strong>Email:</strong> <span class="inline-code">support@digitaloman.ai</span></p>
+      <p><strong>App:</strong> DigitalOman.ai</p>
+    </div>
+    <p>We will respond to your inquiry as promptly as possible.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Digital<span>Oman</span>.ai</div>
+    <p class="footer-text">Privacy-first AI assistant — your data stays yours.</p>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="mailto:support@digitaloman.ai">Contact</a>
+    </div>
+    <p class="footer-text" style="margin-top: 24px;">&copy; 2026 DigitalOman.ai. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
